@@ -48,7 +48,7 @@ class pendingProspectListAPI(ListAPIView):
         return get_queryset_app_ListAPI(self.request,modelName=modelName)
 
 class prospectDetailsAPI(RetrieveAPIView):
-    queryset = Prospect.objects.all()
+    queryset = modelName.objects.all()
     serializer_class = prospectSerializers
     lookup_field = 'slug'
 

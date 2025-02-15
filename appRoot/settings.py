@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'administration.configuration',
     'administration.stateMaster',
     'salesModule.prospect',
+    'salesModule.lead',
 ]
 
 MIDDLEWARE = [

@@ -1,12 +1,12 @@
 from rest_framework import serializers
 from .models import *
 
-class prospectSerializers(serializers.ModelSerializer):
+class leadSerializers(serializers.ModelSerializer):
     updated_by = serializers.CharField(source="updated_by.full_name",allow_null = True)
     my_absolute_url = serializers.SerializerMethodField()
 
     class Meta:
-        model = Prospect
+        model = Lead
         fields = '__all__'
         lookup_field = 'slug'
 
