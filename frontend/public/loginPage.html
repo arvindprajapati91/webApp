@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{form_name}}</title>
+    {% load static %}
+    <link rel="icon" href="{% static 'images/Logo.png' %}" />
+    <link href="{% static 'css/main.019bc66e.css' %}" rel="stylesheet">
+    <script src="{% static 'js/jquery-3.7.js' %}"></script>
+</head>
+
+<body style="background-color: lightgray;">
+    <main class="login">
+        <!-- Carousel -->
+        <section class="login__left">
+            <div id="loginCarousel" class="carousel slide">
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                        <div class="slide" style="background-image:url('{% static 'images/login_page.jpg' %}');background-size:cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Login -->
+        <section class="login__right">
+            <div class="panel">
+                <form class="panel__body" id="login-form" method="POST" action="">
+                    {% csrf_token %}
+                    <div class="mb-3" style="margin-bottom: 30px !important; color: white;text-align: center;">
+                        <img src="{% static 'images/Login_Logo.png' %}" alt="logo_login" style="width:200px">
+                    </div>
+                    <div class="sign">
+
+                        <p class="sign__input" style="padding: 0;font-size: 20px;color: white;">Welcome, please login here</p>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Username</label>
+                            <input type="text" class="form-control" name="username" id="username" placeholder="Username" value="" onclick="inputRequired(this)" onchange="inputRequired(this)">
+                            <div class="form-helper helper_hide" id="username_code_helper">Required</div>
+                            <!-- <div class="box arrow-top">Required</div> -->
+                        </div>
+                        <div class="mb-3" style="margin-bottom: 5px !important;">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Password" onclick="inputRequired(this)" onchange="inputRequired(this)">
+                            <div class="form-helper helper_hide" id="password_code_helper">Required</div>
+                        </div>
+                    </div>
+                    {% if err_msg %}
+                    <div class="col-lg-12 col-md-12 col-sm-12" style="border: 1px solid brown;background-color: rgb(248, 218, 222);color: red;margin: 0;font-weight: bold;">
+                        <h4 style="padding: 5px;margin: 0;font-size: 18px">Error - {{err_msg}}</h4>
+                    </div>
+                    {% endif %}
+
+                    <div class="option">
+                        <div class="option__item">
+                            <button type="submit" class="btn button submit_button" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing Order">
+                                <span class="spinner-border spinner-border-sm" style="display: none;" role="status" aria-hidden="true"></span>
+                                <span class="processing_circle">Processing...</span>
+                                <span class="login-text">Login</span>
+                            </button>
+                        </div>
+                        <div class="option__item">
+                            <a class="button btn btn-secondary forgot_password" class="link-text" style="background-color: #6c757d; color: white;padding: 0.375rem 0.75rem;">Forgot Password</a>
+                        </div>
+                    </div>
+                    {% if session_expire %}
+                    <div class="mb-3" style="color: darkred;text-align: center; margin: 0px;padding-left: 15px;padding-right: 15px;padding-top: 15px;">
+                        <h6 style="margin: 0px; background: lightblue;padding: 5px;">{{session_expire}}</h6>
+                    </div>
+                    {% endif %}
+                    <div class="mb-3" style="color: white;text-align: center;margin-top: 30px;">
+                        <h4>{{SysName}}</h4>
+                    </div>
+                </form>
+                <article class="panel__footer" style="text-align:center; display:block">
+                    <p class="small">{{comp_name}}</p>
+                    {% comment %} <ul class="list-unstyle list-inline">
+                        <li class="list-inline-item small"><a href="#"></a></li>
+                        <li class="list-inline-item small"><a href="#"></a></li>
+                    </ul> {% endcomment %}
+                </article>
+            </div>
+        </section>
+    </main>
+    <script>
+        function enableSubmitBtn() {
+            count = 0
+            $("input").each(function() {
+                var element = $(this);
+                if (element.val() == "") {
+                    count = count + 1
+                }
+                if (count > 0) {
+                    $(".submit_button").prop('disabled', true)
+                } else {
+                    $(".submit_button").prop('disabled', false)
+                }
+            });
+        }
+    </script>
+
+
+    <script>
+        function inputRequired(e) {
+            var id = e.id
+            if (e.value === "") {
+                $("#" + id + "_code_helper").show("slow");
+            } else {
+                $("#" + id + "_code_helper").hide("slow");
+            }
+            enableSubmitBtn()
+        };
+    </script>
+    <script>
+        $('.submit_button').on('click', function() {
+            var $this = $(this);
+            $(".login-text").hide();
+            $(".spinner-border-sm").show();
+            $(".processing_circle").show();
+            $this.button('loading');
+            setTimeout(function() {
+                disableButton();
+                $this.button('reset');
+
+            }, 0);;
+
+        });
+    </script>
+    <script>
+        function disableButton() {
+            $(".button").prop('disabled', true);
+        }
+    </script>
+    <script>
+        $(".forgot_password").on("click", function() {
+            alert("Please contact to System Administrator")
+        })
+    </script>
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script>
+        document.addEventListener("contextmenu", (event) => {
+           event.preventDefault();
+        });
+     </script>
+
+</body>
+
+</html>

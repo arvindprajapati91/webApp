@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>{{form_name}}</title>
+	{% load static %}
+	<link rel="icon" href="{% static 'images/Logo.png' %}" />
+	<link href="{% static 'css/main.019bc66e.css' %}" rel="stylesheet" />
+	<script src="{% static 'js/jquery-3.7.js' %}"></script>
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="content-wrapper">
+			<div class="justify-content-center center_text" style="font-family: Calibri !important; margin-left: 200px;width: 60%;text-align: center;">
+				<div class="ui visible message centered">
+					<h4>
+						{{message}}
+						{% if "logged out" in message %}
+							<a href="/">Click Here to Login</a>
+						{% endif %}
+					</h4>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<script>
+	document.addEventListener("contextmenu", (event) => {
+	   event.preventDefault();
+	});
+ </script>
+
+</html>

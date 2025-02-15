@@ -1,0 +1,38 @@
+state_code,state_name,state_no,slug
+AN,Andaman and Nicobar Islands,35,ananda1
+AP,Andhra Pradesh,28,apandh2
+AD,Andhra Pradesh (New),37,adandh3
+AR,Arunachal Pradesh,12,ararun4
+AS,Assam,18,asassa5
+BH,Bihar,10,bhbiha6
+CH,Chandigarh,4,chchan7
+CT,Chattisgarh,22,ctchat8
+DN,Dadra and Nagar Haveli,26,dndadr9
+DD,Daman and Diu,25,dddama10
+DL,Delhi,7,dldelh11
+GA,Goa,30,gagoa12
+GJ,Gujarat,24,gjguja13
+HR,Haryana,6,hrhary14
+HP,Himachal Pradesh,2,hphima15
+JK,Jammu and Kashmir,1,jkjamm16
+JH,Jharkhand,20,jhjhar17
+KA,Karnataka,29,kakarn18
+KL,Kerala,32,klkera19
+LD,Lakshadweep Islands,31,ldlaks20
+MP,Madhya Pradesh,23,mpmadh21
+MH,Maharashtra,27,mhmaha22
+MN,Manipur,14,mnmani23
+ME,Meghalaya,17,memegh24
+MI,Mizoram,15,mimizo25
+NL,Nagaland,13,nlnaga26
+OR,Odisha,21,orodis27
+PY,Pondicherry,34,pypond28
+PB,Punjab,3,pbpunj29
+RJ,Rajasthan,8,rjraja30
+SK,Sikkim,11,sksikk31
+TN,Tamil Nadu,33,tntami32
+TS,Telangana,36,tstela33
+TR,Tripura,16,trtrip34
+UP,Uttar Pradesh,9,uputta35
+UT,Uttarakhand,5,ututta36
+WB,West Bengal,19,wbwest37

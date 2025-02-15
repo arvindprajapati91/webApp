@@ -1,0 +1,253 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Report - {{report_no}}</title>
+    <style type="text/css">
+        .header {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            color: black;
+        }
+
+        .hrItem {
+            border: none;
+            height: 1px;
+            /* Set the hr color */
+            color: #333;
+            /* old IE */
+            background-color: #fff;
+            /* Modern Browsers */
+        }
+
+        th {
+            border: 1px solid black;
+            padding-top: 4px;
+            padding-left: 4px;
+            font-size: 11px;
+        }
+
+        td {
+            border: 1px solid black;
+            padding-top: 4px;
+            padding-left: 4px;
+            font-size: 11px;
+        }
+
+        @page {
+            size: {{ pagesize|default:"A4" }};
+            margin-top: 2.6cm;
+            margin-left: 1cm;
+            margin-right: 1cm;
+			margin-bottom: 2.6cm;
+            @frame footer {
+                -pdf-frame-content: page-footer;
+                bottom: 1cm;
+                margin-left: 1cm;
+                margin-right: 1.5cm;
+                height:1cm;
+            }
+			@frame header {
+				-pdf-frame-content: page-header;
+				top: 0cm;
+				margin-top: 0.5cm;
+				margin-bottom: 5cm;
+				margin-left: 1cm;
+				margin-right: 1cm;
+				height: 5cm;
+			}
+        }
+    </style>
+</head>
+
+<body>
+	<div class="footer" id="page-header">
+		<table>
+			<thead>
+				<tr class="instruction_row">
+					<th style="text-align: left; border: none;"><img src="{{logoPath}}\Logo.png" style="width: 80px;"></th>
+					<th style="font-size: 12px;text-align:center;border: none;">
+                        {% if status != "Approve" %}
+						    <h1 style="margin-top: 100px;padding-top: 10px;">Draft Test Report</h1>
+                        {% else %}
+                            <h1 style="margin-top: 100px;padding-top: 10px;">Test Report</h1>
+                        {% endif %}
+					</th>
+					<th style="text-align: left;color: white;border: none;">NA</th>
+				</tr>
+			</thead>
+		</table>
+		<hr class='hrItem' />
+	</div>
+
+    <div class='wrapper'>
+        <div class='header'>
+            {% comment %} <img src="D:\django_react_project\labManagmentSystem\webApp\documentUpload\PMQ00001_TLM\sample_registration\WS-TLM-2024-000055\sample_image_sample_image_istockphoto-183261072-612x612.jpg"> {% endcomment %}
+            <img src="{{sampleImagePathURL}}">
+        </div>
+    </div>
+
+    <table>
+        <tr>
+            <td>Report No</td>
+            <td colspan="3">
+                {{report_no}}
+            </td>
+        </tr>
+        <tr>
+            <td>Report Date</td>
+            <td colspan="3">
+                {{report_date|date:"d-M-y"}}
+            </td>
+        </tr>
+        <tr>
+            <td>Applicant</td>
+            <td colspan="3">
+                {{applicant_name}}
+                <br>
+                {{applicant_address}}
+            </td>
+        </tr>
+        <tr>
+            <td>Attention</td>
+            <td colspan="3">
+                {{attention}}
+            </td>
+        </tr>
+        <tr>
+            <td>Sample Description</td>
+            <td colspan="3">
+                {{sample_description}}
+            </td>
+        </tr>
+        <tr>
+            <td>Wash Care Instruction</td>
+            <td colspan="3">
+                {{wash_care_instruction}}
+            </td>
+        </tr>
+        <tr>
+            <td>Sample Received Date</td>
+            <td colspan="3">
+                {{received_date}}
+            </td>
+        </tr>
+        <tr>
+            <td>Buyer Name</td>
+            <td colspan="3">
+                {{buyer_name}}
+            </td>
+        </tr>
+        <tr>
+            <td>Style No</td>
+            <td colspan="3">
+                {{style_no}}
+            </td>
+        </tr>
+        
+    </table>
+
+	<br>
+	<span style="font-size: 12px;padding-top: 3px;">Test Conducted As Per The Request Of The Applicant. For Further Details, Please Refer To Enclosed Pages.</span>
+	
+	<table>
+		<tr>
+			<th>Test Parameters</th>
+			<th>Conclusion</th>
+		</tr>
+		{% for c in conclusion %}
+		<tr>
+			<td>{{c.test_parameter}}</td>
+			<td style="text-align: center;">{{c.conclusion}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+
+    <br>
+	<span style="font-weight: bold;"> Note : <span>
+	<table>
+		<tr style="text-align: center;font-weight: normal;">
+			<td>M-Meets Requirement</td>
+			<td>F-Fails To Meet Requirement</td>
+			<td>R-Refer Result</td>
+			<td>*-Requirement Not Provided</td>
+		</tr>
+	</table>
+	<br>
+
+    <br>
+    <table style="font-weight: normal;">
+        <tr>
+            <td>
+                <span>Authorized By</span>
+                <br>
+                <span>Image</span>
+                <br>
+                <span>Name</span>
+                <br>
+                <span>Designation</span>
+            </td>
+            <td style="color: white;border: none;">Report No</td>
+            <td style="color: white;border: none;">Report No</td>
+        </tr>
+    </table>
+    <br>
+    <br>
+	{% for t in conclusion %}
+		<div style="font-weight: normal;">
+			<span style="font-size: 12px;font-weight: bold;">{{ forloop.counter }} {{t.test_parameter}} -
+				{{t.test_method}}</span>
+			<br>
+			{% if t.test_row_count > 0%}
+				<table>
+					<tr>
+						<th>Test</th>
+						<th>Result</th>
+						<th>Requirement</th>
+					</tr>
+					{% for s in sampleParamTestResultList %}
+						{% if s.test_id == t.test_id %}
+                            <tr style="text-align: center;font-weight: normal;">
+								<td>{{s.parameter}}</td>
+								{% if s.result == "" %}
+									<td style="color: white;text-align: center;">NA</td>
+								{% else %}
+									<td>
+                                        {{s.result|default_if_none:"NA"}} {{s.test_unit}}
+                                    </td>
+								{% endif %}
+								{% if s.requirement == "" %}
+									<td style="color: white;text-align: center;">NA</td>
+								{% else %}
+									<td>{{s.requirement|default_if_none:"NA"}} {{s.test_unit}}</td>
+								{% endif %}
+								
+							</tr>
+						{% endif %}
+					{% endfor %}
+					
+				</table>
+			{% endif %}
+			<br>
+			<span style="font-size: 14px;font-weight: normal;">{{t.test_note|default_if_none:""}}</span>
+			<br>
+			<br>
+		</div>
+	{% endfor %}
+	
+    <div class="footer" id="page-footer">
+        <div style="text-align: center; border-top: 1px black; font-weight: normal;">
+            {{company_name}} |
+
+            {{company_address}} |
+            Page <pdf:pagenumber />
+        </div>
+    </div>
+</body>
+	
+</html>

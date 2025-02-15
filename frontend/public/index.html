@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="theme-color" content="#000000" />
+	{% load static %}
+	<link rel="icon" href="{% static 'images/Logo.png' %}" />
+	<title>%REACT_APP_COMP_NAME%</title>
+</head>
+
+<body>
+	<div id="root"></div>
+	<script src="{% static 'js/main.68afa4bf_umd_popper.min.js' %}"></script>
+	{% comment %}
+	<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+	{% endcomment %}
+	<script src="{% static 'js/main.68afa4bf_jquery.js' %}"></script>
+	{% comment %}
+	<script>
+		document.addEventListener("contextmenu", (event) => {
+			event.preventDefault();
+		});
+	</script>
+	{% endcomment %}
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+
+Username : sales.user, TimeStamp : 2025-02-15 13:21:06.069752
+E='Prospect' object has no attribute 'bl_desc', F=C:\Users\hp\Documents\mainProject\webApp\salesModule\prospect\models.py, L=58
+---------------------------------------------------------------------------------------------------------------------------------------
+Username : sales.user, TimeStamp : 2025-02-15 13:22:10.091331
+E='NoneType' object has no attribute 'id', F=C:\Users\hp\Documents\mainProject\webApp\appRoot\utils.py, L=213
+---------------------------------------------------------------------------------------------------------------------------------------
+Username : sales.user, TimeStamp : 2025-02-15 13:22:22.129293
+E='Prospect' object has no attribute 'inward_no', F=C:\Users\hp\Documents\mainProject\webApp\salesModule\prospect\views.py, L=86
+---------------------------------------------------------------------------------------------------------------------------------------
+Username : sales.user, TimeStamp : 2025-02-15 13:24:43.354950
+E='NoneType' object has no attribute 'id', F=C:\Users\hp\Documents\mainProject\webApp\appRoot\utils.py, L=213
+---------------------------------------------------------------------------------------------------------------------------------------
+Username : sales.user, TimeStamp : 2025-02-15 14:12:17.608514
+E=UNIQUE constraint failed: tbl_prospect.email, F=C:\Python\Lib\site-packages\django\db\backends\sqlite3\base.py, L=354
+---------------------------------------------------------------------------------------------------------------------------------------
+Username : sales.user, TimeStamp : 2025-02-15 14:12:17.630213
+E=UNIQUE constraint failed: tbl_prospect.email, F=C:\Python\Lib\site-packages\django\db\backends\sqlite3\base.py, L=354
+---------------------------------------------------------------------------------------------------------------------------------------
+Username : sales.user, TimeStamp : 2025-02-15 15:57:42.989188
+E=Cannot assign "'Sales User'": "Prospect.updated_by" must be a "User" instance., F=C:\Python\Lib\site-packages\django\db\models\fields\related_descriptors.py, L=287
+---------------------------------------------------------------------------------------------------------------------------------------
+Username : sales.user, TimeStamp : 2025-02-15 15:57:56.296861
+E=Cannot assign "'Sales User'": "Prospect.updated_by" must be a "User" instance., F=C:\Python\Lib\site-packages\django\db\models\fields\related_descriptors.py, L=287
+---------------------------------------------------------------------------------------------------------------------------------------
+Username : sales.user, TimeStamp : 2025-02-15 15:58:04.460674
+E=Cannot assign "'Sales User'": "Prospect.updated_by" must be a "User" instance., F=C:\Python\Lib\site-packages\django\db\models\fields\related_descriptors.py, L=287
+---------------------------------------------------------------------------------------------------------------------------------------
+Username : sales.user, TimeStamp : 2025-02-15 15:59:05.463377
+E=Cannot assign "'Sales User'": "Prospect.updated_by" must be a "User" instance., F=C:\Python\Lib\site-packages\django\db\models\fields\related_descriptors.py, L=287
+---------------------------------------------------------------------------------------------------------------------------------------
+Username : sales.user, TimeStamp : 2025-02-15 16:01:01.175347
+E=Cannot assign "'Sales User'": "Prospect.updated_by" must be a "User" instance., F=C:\Python\Lib\site-packages\django\db\models\fields\related_descriptors.py, L=287
+---------------------------------------------------------------------------------------------------------------------------------------
+Username : sales.user, TimeStamp : 2025-02-15 16:01:47.582427
+E=Cannot assign "'Sales User'": "Prospect.updated_by" must be a "User" instance., F=C:\Python\Lib\site-packages\django\db\models\fields\related_descriptors.py, L=287
+---------------------------------------------------------------------------------------------------------------------------------------
+Username : sales.user, TimeStamp : 2025-02-15 16:02:33.631371
+E=Cannot assign "'Sales User'": "Prospect.updated_by" must be a "User" instance., F=C:\Python\Lib\site-packages\django\db\models\fields\related_descriptors.py, L=287
+---------------------------------------------------------------------------------------------------------------------------------------
+Username : sales.user, TimeStamp : 2025-02-15 16:07:20.774636
+E=Cannot assign "'Sales User'": "Prospect.updated_by" must be a "User" instance., F=C:\Python\Lib\site-packages\django\db\models\fields\related_descriptors.py, L=287
+---------------------------------------------------------------------------------------------------------------------------------------
+Username : sales.user, TimeStamp : 2025-02-15 16:11:54.295611
+E=Cannot assign "'Sales User'": "Prospect.updated_by" must be a "User" instance., F=C:\Python\Lib\site-packages\django\db\models\fields\related_descriptors.py, L=287
+---------------------------------------------------------------------------------------------------------------------------------------

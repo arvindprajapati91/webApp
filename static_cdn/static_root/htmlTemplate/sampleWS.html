@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <title>Worksheet - {{ws_no}}</title>
+        <style type="text/css">
+            .header {
+                font-size: 20px;
+                font-weight: bold;
+                text-align: center;
+                color: black;
+            }
+            .hrItem {
+                border: none;
+                height: 1px;
+                /* Set the hr color */
+                color: #333; /* old IE */
+                background-color: #fff; /* Modern Browsers */
+            }
+            td{
+                border: 1px solid black;
+                padding-top: 5px;
+                padding-left: 5px;
+                font-size: 12px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class='wrapper'>
+            <div class='header'>
+                <p class='title'>Worksheet</p>
+            </div>
+        <div>
+        <div class='details'>
+            <hr class='hrItem' />
+        </div>
+        <table>
+            <tr>
+                <td colspan="4">
+                    Worksheet No : {{ws_no}}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    {{sample_description}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Sample Received Date
+                </td>
+                <td colspan="3">
+                    {{received_date}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Style No
+                </td>
+                <td colspan="3">
+                    {{style_no}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Quality
+                </td>
+                <td colspan="3">
+                    {{quality}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Design No
+                </td>
+                <td colspan="3">
+                    {{design_no}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Colour
+                </td>
+                <td colspan="3">
+                    {{colour}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Fiber Content
+                </td>
+                <td colspan="3">
+                    {{fiber_content}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Fiber Content
+                </td>
+                <td colspan="3">
+                    {{buyer_name}}
+                </td>
+            </tr>
+        </table>
+       
+    </div>
+    </body>
+</html>

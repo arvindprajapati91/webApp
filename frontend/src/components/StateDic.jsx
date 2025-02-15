@@ -1,0 +1,27 @@
+const StateDic = {
+    loadTemplate: true,
+    data_list: [],
+    loading: true,
+    links: '',
+    page_size: '',
+    offset: 0,
+    perPage: process.env.REACT_APP_PAGE_SIZE,
+    currentPage: 1,
+    pageCount: '',
+    pageSize: '',
+    fildName: '',
+    fildValue: '',
+    searchParam: '',
+    dataCount: '',
+    paginationDisplay: false,
+    order_by: "desc",
+    orderByField: '',
+    err_msg_visible: false,
+    error_message: '',
+    show: false,
+    redirect: false,
+    action: "",
+    navOrgName:'',
+}
+
+export default StateDic

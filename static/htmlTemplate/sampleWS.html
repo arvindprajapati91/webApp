@@ -1,0 +1,240 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worksheet - {{ws_no}}</title>
+    <style type="text/css">
+        .header {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            color: black;
+        }
+
+        .hrItem {
+            border: none;
+            height: 1px;
+            /* Set the hr color */
+            color: #333;
+            /* old IE */
+            background-color: #fff;
+            /* Modern Browsers */
+        }
+
+        th {
+            border: 1px solid black;
+            padding-top: 4px;
+            padding-left: 4px;
+            font-size: 11px;
+        }
+
+        td {
+            border: 1px solid black;
+            padding-top: 4px;
+            padding-left: 4px;
+            font-size: 11px;
+        }
+
+        @page {
+            size: {{ pagesize|default:"A4" }};
+            margin-top: 2.6cm;
+            margin-left: 1cm;
+            margin-right: 1cm;
+			margin-bottom: 2.6cm;
+            @frame footer {
+                -pdf-frame-content: page-footer;
+                bottom: 1cm;
+                margin-left: 1cm;
+                margin-right: 1.5cm;
+                height:1cm;
+            }
+			@frame header {
+				-pdf-frame-content: page-header;
+				top: 0cm;
+				margin-top: 0.5cm;
+				margin-bottom: 5cm;
+				margin-left: 1cm;
+				margin-right: 1cm;
+				height: 5cm;
+			}
+        }
+    </style>
+</head>
+
+<body>
+	<div class="footer" id="page-header">
+		<table>
+			<thead>
+				<tr class="instruction_row">
+					<th style="text-align: left; border: none;"><img src="{{logoPath}}\Logo.png" style="width: 80px;"></th>
+					<th style="font-size: 12px;text-align:center;border: none;">
+						<h1 style="margin-top: 100px;padding-top: 10px;">Worksheet</h4>
+					</th>
+					<th style="text-align: left;color: white;border: none;">NA</th>
+				</tr>
+			</thead>
+		</table>
+		<hr class='hrItem' />
+	</div>
+    <table>
+        <tr>
+            <td colspan="4">
+                Worksheet No : {{ws_no}}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                {{sample_description}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Sample Received Date
+            </td>
+            <td colspan="3">
+                {{received_date}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Style No
+            </td>
+            <td colspan="3">
+                {{style_no}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Quality
+            </td>
+            <td colspan="3">
+                {{quality}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Design No
+            </td>
+            <td colspan="3">
+                {{design_no}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Colour
+            </td>
+            <td colspan="3">
+                {{colour}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Fiber Content
+            </td>
+            <td colspan="3">
+                {{fiber_content}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Buyer Name
+            </td>
+            <td colspan="3">
+                {{buyer_name}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Construction
+            </td>
+            <td colspan="3">
+                {{construction}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Width
+            </td>
+            <td colspan="3">
+                {{width}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Fabric GSM
+            </td>
+            <td colspan="3">
+                {{fabric_gsm}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Wash Care Instruction
+            </td>
+            <td colspan="3">
+                {{wash_care_instruction}}
+            </td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <th style="width: 50px;">Sr No</th>
+            <th style="width: 400px;">Test Name</th>
+            <th>Test Method</th>
+            <th>Department</th>
+        </tr>
+        {% for i in test_details %}
+            <tr class="detail_line">
+                <td style="text-align: center;">{{forloop.counter}}</td>
+                <td>{{i.test_name}}</td>
+                <td>{{i.test_method}}</td>
+                <td>{{i.department}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <div style="padding-top: 50px;font-weight: bold;font-size: 15px;">
+        Activity Performer :
+    </div>
+    <table>
+        <tr style="font-size: 10px;">
+            <th style="font-size: 10px;">Registration Done By</th>
+            <th style="font-size: 10px;">Sampling Perform By</th>
+            <th style="font-size: 10px;">Testing Perform By</th>
+            <th style="font-size: 10px;">Data Entry Done By</th>
+            <th style="font-size: 10px;">Verification Done By</th>
+            <th style="font-size: 10px;">Report Close By</th>
+            
+        </tr>
+        <tr>
+            <td style="font-size: 10px;height: 60px;">{{created_by}}</td>
+            <td style="font-size: 10px;color: white;">Testing Perform By</td>
+            <td style="font-size: 10px;color: white;">Testing Perform By</td>
+            <td style="font-size: 10px;color: white;">Data Entry Done By</td>
+            <td style="font-size: 10px;color: white;">Verification Done By</td>
+            <td style="font-size: 10px;color: white;">Report Close By</th>
+        </tr>
+        <tr>
+            <td style="height: 60px;">{{created_date|date:"d-M-y"}}</td>
+            <td style="font-size: 10px;color: white;">Testing Perform By</td>
+            <td style="font-size: 10px;color: white;">Testing Perform By</td>
+            <td style="font-size: 10px;color: white;">Data Entry Done By</td>
+            <td style="font-size: 10px;color: white;">Verification Done By</td>
+            <td style="font-size: 10px;color: white;">Report Close By</th>
+        </tr>
+    </table>
+
+    <div class="footer" id="page-footer">
+        <div style="text-align: center; border-top: 1px black; font-weight: normal;">
+            {{company_name}} |
+
+            {{company_address}} |
+            Page <pdf:pagenumber />
+        </div>
+    </div>
+</body>
+	
+</html>
