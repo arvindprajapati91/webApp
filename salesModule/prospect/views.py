@@ -12,6 +12,7 @@ from django.db import connection
 from django.db import transaction
 import json
 from appRoot.views import LargeResultsSetPagination, get_queryset_app_ListAPI, get_queryset_app_detailAPI, redirectURL
+from rest_framework.response import Response
 
 User = get_user_model()
 modelName = Prospect
@@ -106,3 +107,12 @@ def prospectCreateUpdateAPI(request):
             return JsonResponse(data)
     else:
         return redirect(login_url)
+    
+def fetchProspectDetails(request):
+    if request.user.is_authenticated:
+        request.session.modified = True
+        prospect_no = request.GET.get("prospect_no")
+        prospect = modelName.objects.filter(prospect_number=prospect_no).first()
+        if prospect:
+            data = prospectSerializers(prospect).data
+        return JsonResponse(data)

@@ -9,6 +9,6 @@ urlpatterns = [
     path('modify=<slug:slug>/', leadDetailsAPI.as_view(), name="DetailsAPI"),            
     path('CreateUpdate/', leadCreateUpdate, name="CreateUpdate"),    
     path('CreateUpdateAPI/', leadCreateUpdateAPI, name="CreateUpdateAPI"),   
-    path('pendinglead', pendingleadListAPI, name="pendingleadList"),
-    path('pendingleadListAPI/',pendingleadListAPI.as_view() , name="pendingleadListAPI"), 
+    path('pendingLead', pendingLeadList, name="pendingLeadList"),
+    path('pendingLeadListAPI/',pendingLeadListAPI.as_view() , name="pendingLeadListAPI"), 
 ]

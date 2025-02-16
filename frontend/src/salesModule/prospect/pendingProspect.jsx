@@ -6,7 +6,7 @@ const API_form_name = "prospect";
 const form_name = "Prospect List";
 const Create_Update_Path = `/${process.env.REACT_APP_NAME}/${API_form_name}/CreateUpdate`;
 const listAPI = `/${process.env.REACT_APP_NAME}/${API_form_name}/pendingProspectListAPI/`;
-const form_type = "Master";
+const form_type = "Transaction";
 
 const tableHeaderList = [
     { cn: "Number", fv: "code", fn: "prospect_number", st: "search_box", sv: "prospect_number" },

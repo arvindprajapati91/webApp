@@ -33,14 +33,14 @@ class leadListAPI(ListAPIView):
         a = self.request.user.is_authenticated
         return get_queryset_app_ListAPI(self.request,modelName=modelName)
     
-def pendingleadList(request):
+def pendingLeadList(request):
     if request.user.is_authenticated:
         request.session.modified = True
         return redirectURL(request,form_name,type="List")
     else:
         return redirect(login_url)
 
-class pendingleadListAPI(ListAPIView):
+class pendingLeadListAPI(ListAPIView):
     serializer_class = leadSerializers
     pagination_class = LargeResultsSetPagination
     def get_queryset(self):
@@ -77,7 +77,7 @@ def leadCreateUpdateAPI(request):
                 obj_id = obj_id
             
             data = {
-                "status":"Ok"
+                "status":"Data saved successfully"
             }
             return JsonResponse(data)
     else:

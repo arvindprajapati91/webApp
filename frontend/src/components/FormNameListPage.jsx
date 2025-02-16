@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Navigate } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { AiOutlineFilePdf } from "react-icons/ai";
 import AddIcon from "../images/add_icon.png"
@@ -16,7 +17,9 @@ export class FormName extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            param: "No"
+            param: "No",
+            converToLead: false,
+            convertLeadPath: "",
         }
     };
     searchParam = () => {
@@ -104,7 +107,12 @@ export class FormName extends Component {
         try {
             var selected_row = document.getElementsByClassName("selected_row")[0];
             let obj_id = selected_row.id;
-            console.log(selected_row.firstChild.innerText)
+            let prospectNo = selected_row.firstChild.innerText
+            this.setState({
+                converToLead: this.state.converToLead = true,
+                convertLeadPath: this.state.convertLeadPath = `/${process.env.REACT_APP_NAME}/lead/CreateUpdate/?prospect_no=${prospectNo}`
+            })
+
         } catch (e) {
             return alert("Select record to convert to lead!")
         }
@@ -155,6 +163,9 @@ export class FormName extends Component {
     }
 
     render() {
+        if (this.state.converToLead) {
+            return <Navigate to={this.state.convertLeadPath} />;
+        }
         return (
             <>
                 <div className="row form-name-row">

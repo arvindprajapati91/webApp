@@ -10,5 +10,6 @@ urlpatterns = [
     path('CreateUpdate/', prospectCreateUpdate, name="CreateUpdate"),    
     path('CreateUpdateAPI/', prospectCreateUpdateAPI, name="CreateUpdateAPI"),   
     path('pendingProspect', pendingProspectList, name="pendingProspectList"),
-    path('pendingProspectListAPI/',pendingProspectListAPI.as_view() , name="pendingProspectListAPI"), 
+    path('pendingProspectListAPI/',pendingProspectListAPI.as_view() , name="pendingProspectListAPI"),
+    path('fetchProspectDetails/',fetchProspectDetails, name="fetchProspectDetails"),
 ]
